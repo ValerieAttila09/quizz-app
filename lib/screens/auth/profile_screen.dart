@@ -115,7 +115,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       radius: 40,
                                       backgroundColor: kPrimaryGradient.colors[0],
                                       child: Text(
-                                        user?.fullName[0].toUpperCase() ?? 'U',
+                                        (user?.fullName.isNotEmpty == true) 
+                                            ? user!.fullName[0].toUpperCase() 
+                                            : 'U',
                                         style: TextStyle(
                                           fontSize: 32,
                                           fontWeight: FontWeight.bold,
