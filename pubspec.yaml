@@ -36,9 +36,11 @@ dependencies:
   
   # HTTP client for API calls
   http: ^1.2.2
-  
-  # Secure storage for JWT token
+
+  # Local key-value storage for non-sensitive preferences (theme, flags, etc.)
   shared_preferences: ^2.3.3
+
+  # Secure encrypted storage for JWT tokens and other secrets
   flutter_secure_storage: ^9.2.2
 
 dev_dependencies:
