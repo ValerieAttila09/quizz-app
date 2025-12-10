@@ -14,7 +14,7 @@ class QuestionController extends GetxController
   late PageController _pageController;
   PageController get pageController => this._pageController;
 
-  String difficulty;
+  final String difficulty;
   
   QuestionController({this.difficulty = 'Easy'});
 
