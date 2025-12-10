@@ -20,6 +20,8 @@ class QuestionController extends GetxController
 
   List<Question> _questions = [];
   List<Question> get questions => this._questions;
+  
+  Animation get animationValue => this._animation;
 
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
