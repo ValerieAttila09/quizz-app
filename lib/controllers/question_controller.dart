@@ -14,12 +14,14 @@ class QuestionController extends GetxController
   late PageController _pageController;
   PageController get pageController => this._pageController;
 
-  final String difficulty;
+  String difficulty;
   
   QuestionController({this.difficulty = 'Easy'});
 
   List<Question> _questions = [];
   List<Question> get questions => this._questions;
+  
+  Animation get animationValue => this._animation;
 
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;

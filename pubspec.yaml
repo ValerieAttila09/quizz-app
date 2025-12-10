@@ -33,6 +33,13 @@ dependencies:
 
   # state management, intelligent dependency injection, and route management
   get: ^4.1.4
+  
+  # HTTP client for API calls
+  http: ^1.2.2
+  
+  # Secure storage for JWT token
+  shared_preferences: ^2.3.3
+  flutter_secure_storage: ^9.2.2
 
 dev_dependencies:
   flutter_test:

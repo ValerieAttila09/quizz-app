@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
+import 'package:quiz_app/controllers/auth_controller.dart';
+import 'package:quiz_app/screens/auth/profile_screen.dart';
 import 'package:quiz_app/screens/quiz/quiz_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -24,6 +26,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Profile Button
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        icon: Icon(Icons.person, color: Colors.white, size: 28),
+                        onPressed: () => Get.to(() => ProfileScreen()),
+                      ),
+                    ],
+                  ),
                   Spacer(flex: 2), //2/6
                   Text(
                     "Let's Play Quiz,",
