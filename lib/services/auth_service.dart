@@ -12,8 +12,8 @@ class AuthService {
 
   // Save token to local storage
   Future<void> _saveToken(String token) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_tokenKey, token);
+    const storage = FlutterSecureStorage();
+    await storage.write(key: _tokenKey, value: token);
   }
 
   // Get token from local storage
