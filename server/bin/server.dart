@@ -17,7 +17,7 @@ void main(List<String> args) async {
   final mongoUri = env['MONGODB_URI'] ?? '';
   final jwtSecret = env['JWT_SECRET'] ?? 'default-secret-key';
   final jwtExpiryHours = int.tryParse(env['JWT_EXPIRY_HOURS'] ?? '24') ?? 24;
-  final port = int.tryParse(env['PORT'] ?? '8080') ?? 8080;
+  final port = int.tryParse(env['PORT'] ?? '9925') ?? 9925;
 
   if (mongoUri.isEmpty) {
     print('❌ Error: MONGODB_URI not found in .env file');

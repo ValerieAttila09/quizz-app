@@ -31,7 +31,7 @@ Backend API server untuk Quiz App menggunakan Dart Shelf, MongoDB Atlas, dan JWT
    MONGODB_URI=mongodb+srv://quizapp:YOUR_PASSWORD@cluster.mongodb.net/quiz_app?retryWrites=true&w=majority
    JWT_SECRET=ganti-dengan-secret-key-yang-aman
    JWT_EXPIRY_HOURS=24
-   PORT=8080
+   PORT=9925
    ```
 
 ## Menjalankan Server
@@ -46,7 +46,7 @@ Backend API server untuk Quiz App menggunakan Dart Shelf, MongoDB Atlas, dan JWT
    dart run bin/server.dart
    ```
 
-Server akan berjalan di `http://localhost:8080`
+Server akan berjalan di `http://localhost:9925`
 
 ## API Endpoints
 
@@ -132,21 +132,21 @@ GET /api/quiz/stats
 
 ### Register
 ```bash
-curl -X POST http://localhost:8080/api/auth/register \
+curl -X POST http://localhost:9925/api/auth/register \
   -H "Content-Type: application/json" \
   -d '{"email":"test@example.com","username":"testuser","password":"test123","fullName":"Test User"}'
 ```
 
 ### Login
 ```bash
-curl -X POST http://localhost:8080/api/auth/login \
+curl -X POST http://localhost:9925/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"test@example.com","password":"test123"}'
 ```
 
 ### Get Profile (ganti TOKEN dengan token dari login)
 ```bash
-curl http://localhost:8080/api/user/profile \
+curl http://localhost:9925/api/user/profile \
   -H "Authorization: Bearer TOKEN"
 ```
 
