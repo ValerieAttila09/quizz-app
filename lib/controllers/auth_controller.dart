@@ -40,21 +40,23 @@ class AuthController extends GetxController {
     required String fullName,
   }) async {
     _isLoading.value = true;
-    
-    final result = await _authService.register(
-      email: email,
-      username: username,
-      password: password,
-      fullName: fullName,
-    );
-    
-    if (result['success']) {
-      _user.value = result['user'];
-      _isLoggedIn.value = true;
+    try {
+      final result = await _authService.register(
+        email: email,
+        username: username,
+        password: password,
+        fullName: fullName,
+      );
+      
+      if (result['success']) {
+        _user.value = result['user'];
+        _isLoggedIn.value = true;
+      }
+      
+      return result;
+    } finally {
+      _isLoading.value = false;
     }
-    
-    _isLoading.value = false;
-    return result;
   }
 
   Future<Map<String, dynamic>> login({
