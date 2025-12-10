@@ -14,15 +14,11 @@ class QuestionController extends GetxController
   late PageController _pageController;
   PageController get pageController => this._pageController;
 
-  List<Question> _questions = sample_data
-      .map(
-        (question) => Question(
-            id: question['id'],
-            question: question['question'],
-            options: question['options'],
-            answer: question['answer_index']),
-      )
-      .toList();
+  final String difficulty;
+  
+  QuestionController({this.difficulty = 'Easy'});
+
+  List<Question> _questions = [];
   List<Question> get questions => this._questions;
 
   bool _isAnswered = false;
@@ -38,6 +34,19 @@ class QuestionController extends GetxController
 
   @override
   void onInit() {
+    // Filter questions based on difficulty
+    _questions = sample_data
+        .where((question) => question['difficulty'] == difficulty)
+        .map(
+          (question) => Question(
+              id: question['id'],
+              question: question['question'],
+              options: question['options'],
+              answer: question['answer_index'],
+              difficulty: question['difficulty']),
+        )
+        .toList();
+
     _animationController =
         AnimationController(duration: Duration(seconds: 60), vsync: this);
     _animation = Tween<double>(begin: 0, end: 1).animate(_animationController)

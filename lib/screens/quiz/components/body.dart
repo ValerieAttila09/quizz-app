@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
 import 'package:quiz_app/controllers/question_controller.dart';
-import 'package:quiz_app/models/Questions.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'progress_bar.dart';
@@ -14,7 +13,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // So that we have acccess our controller
-    QuestionController _questionController = Get.put(QuestionController());
+    QuestionController _questionController = Get.find<QuestionController>();
     return Stack(
       children: [
         SvgPicture.asset("assets/images/bg.svg", fit: BoxFit.fill),
