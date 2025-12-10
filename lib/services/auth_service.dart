@@ -5,7 +5,7 @@ import '../models/api/user_model.dart';
 
 class AuthService {
   // Update this with your server URL
-  static const String baseUrl = 'http://localhost:8080/api';
+  static const String baseUrl = 'http://localhost:9925/api';
   
   static const String _tokenKey = 'auth_token';
   static const String _userKey = 'user_data';
