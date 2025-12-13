@@ -9,7 +9,8 @@ class DatabaseService {
   static Future<void> connect(String mongoUri) async {
     try {
       _db = await Db.create(mongoUri);
-      await _db!.open();
+      // The `secure: true` parameter is the correct way to enable TLS/SSL.
+      await _db!.open(secure: true);
       
       print('✅ Connected to MongoDB successfully!');
       

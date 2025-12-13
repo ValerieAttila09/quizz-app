@@ -4,11 +4,11 @@ import 'package:shelf/shelf_io.dart';
 import 'package:shelf_router/shelf_router.dart';
 import 'package:shelf_cors_headers/shelf_cors_headers.dart';
 import 'package:dotenv/dotenv.dart';
-import '../lib/services/database_service.dart';
-import '../lib/routes/auth_routes.dart';
-import '../lib/routes/user_routes.dart';
-import '../lib/routes/quiz_routes.dart';
-import '../lib/middleware/auth_middleware.dart';
+import 'package:server/services/database_service.dart';
+import 'package:server/routes/auth_routes.dart';
+import 'package:server/routes/user_routes.dart';
+import 'package:server/routes/quiz_routes.dart';
+import 'package:server/middleware/auth_middleware.dart';
 
 void main(List<String> args) async {
   // Load environment variables
@@ -65,16 +65,10 @@ void main(List<String> args) async {
     return Response.ok('Server is running! 🚀');
   });
 
-  // CORS configuration
-  final overrideHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Origin, Content-Type, Authorization',
-  };
-
+  // Use the corsHeaders middleware
   final handler = Pipeline()
       .addMiddleware(logRequests())
-      .addMiddleware(corsHeaders(headers: overrideHeaders))
+      .addMiddleware(corsHeaders())
       .addHandler(app.call);
 
   // Start server
