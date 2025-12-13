@@ -5,8 +5,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/api/user_model.dart';
 
 class AuthService {
-  // Update this with your server URL
-  static const String baseUrl = 'http://localhost:9925/api';
+  // !!! IMPORTANT !!!
+  // Replace 'YOUR_COMPUTER_IP' with your actual local IP address.
+  // Your computer and your phone/emulator must be on the same Wi-Fi network.
+  static const String baseUrl = 'http://192.168.1.6:9925/api';
   
   static const String _tokenKey = 'auth_token';
   static const String _userKey = 'user_data';

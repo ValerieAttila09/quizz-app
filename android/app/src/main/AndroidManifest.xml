@@ -1,8 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Add Internet permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:label="myapp"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        
+        <!-- Add this attribute to allow HTTP traffic for development -->
+        android:usesCleartextTraffic="true">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
