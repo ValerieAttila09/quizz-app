@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
+import 'package:quiz_app/screens/login/login_screen.dart';
 import 'package:quiz_app/screens/quiz/quiz_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -15,6 +16,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => LoginScreen()),
+              );
+            },
+          ),
+        ],
+      ),
       body: Stack(
         children: [
           SvgPicture.asset("assets/images/bg.svg", fit: BoxFit.fill),
