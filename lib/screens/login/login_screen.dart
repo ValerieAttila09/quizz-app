@@ -53,13 +53,19 @@ class _LoginScreenState extends State<LoginScreen> {
               ElevatedButton(
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    final _ = await authService.login(
+                    final user = await authService.login(
                         _usernameController.text, _passwordController.text);
+                    if (user != null) {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                             builder: (context) => WelcomeScreen()),
                       );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Invalid username or password')),
+                      );
+                    }
                   }
                 },
                 child: Text('Login'),
