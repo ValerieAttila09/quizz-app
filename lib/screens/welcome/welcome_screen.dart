@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
-import 'package:quiz_app/controllers/auth_controller.dart';
-import 'package:quiz_app/screens/auth/profile_screen.dart';
 import 'package:quiz_app/screens/quiz/quiz_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -26,16 +24,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Profile Button
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.person, color: Colors.white, size: 28),
-                        onPressed: () => Get.to(() => ProfileScreen()),
-                      ),
-                    ],
-                  ),
                   Spacer(flex: 2), //2/6
                   Text(
                     "Let's Play Quiz,",
@@ -65,19 +53,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Color(0xFFE92E30),
                   ),
                   Spacer(), // 1/6
-                  Text("Enter your name", style: TextStyle(color: Colors.white70)),
-                  SizedBox(height: 8),
-                  TextField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Color(0xFF1C2341),
-                      hintText: "Full Name",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: kDefaultPadding),
                   InkWell(
                     onTap: () => Get.to(() => QuizScreen(difficulty: selectedDifficulty)),
                     child: Container(
@@ -120,7 +95,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         width: double.infinity,
         padding: EdgeInsets.all(kDefaultPadding * 0.75),
         decoration: BoxDecoration(
-          color: isSelected ? color.withOpacity(0.3) : Color(0xFF1C2341),
+          color: isSelected ? color.withAlpha(77) : Color(0xFF1C2341),
           border: Border.all(
             color: isSelected ? color : Colors.transparent,
             width: 2,
