@@ -31,7 +31,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       ),
       body: Stack(
         children: [
-          SvgPicture.asset("assets/images/bg.svg", fit: BoxFit.fill),
+          // SvgPicture.asset("assets/images/bg.svg", fit: BoxFit.fill),
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),

@@ -27,7 +27,7 @@ class Body extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          SvgPicture.asset("assets/images/bg.svg", fit: BoxFit.fill),
+          // SvgPicture.asset("assets/images/bg.svg", fit: BoxFit.fill),
           SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

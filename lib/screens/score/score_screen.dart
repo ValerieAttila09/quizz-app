@@ -18,7 +18,7 @@ class _ScoreScreenState extends State<ScoreScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          SvgPicture.asset("assets/images/bg.svg", fit: BoxFit.fill),
+          // SvgPicture.asset("assets/images/bg.svg", fit: BoxFit.fill),
           Column(
             children: [
               Spacer(flex: 3),
