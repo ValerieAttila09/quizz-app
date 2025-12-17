@@ -19,8 +19,8 @@ class QuestionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     QuestionController _controller = Get.put(QuestionController());
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-      padding: EdgeInsets.all(kDefaultPadding),
+      margin: EdgeInsets.symmetric(horizontal: kDefaultPadding * 0.75),
+      padding: EdgeInsets.all(kDefaultPadding * 0.75),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(25),
@@ -31,10 +31,13 @@ class QuestionCard extends StatelessWidget {
             question.question,
             style: Theme.of(context)
                 .textTheme
-                .titleLarge
-                ?.copyWith(color: kBlackColor),
+                .titleMedium
+                ?.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                ),
           ),
-          SizedBox(height: kDefaultPadding / 2),
+          SizedBox(height: kDefaultPadding * 0.4),
           ...List.generate(
             question.options.length,
             (index) => Option(

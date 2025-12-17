@@ -39,8 +39,8 @@ class Option extends StatelessWidget {
           return InkWell(
             onTap: press,
             child: Container(
-              margin: EdgeInsets.only(top: kDefaultPadding),
-              padding: EdgeInsets.all(kDefaultPadding),
+              margin: EdgeInsets.only(top: kDefaultPadding * 0.6),
+              padding: EdgeInsets.all(kDefaultPadding * 0.65),
               decoration: BoxDecoration(
                 border: Border.all(color: getTheRightColor()),
                 borderRadius: BorderRadius.circular(15),
@@ -48,13 +48,16 @@ class Option extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "${index + 1}. $text",
-                    style: TextStyle(color: getTheRightColor(), fontSize: 16),
+                  Flexible(
+                    child: Text(
+                      "${index + 1}. $text",
+                      style: TextStyle(color: getTheRightColor(), fontSize: 14),
+                    ),
                   ),
+                  SizedBox(width: 8),
                   Container(
-                    height: 26,
-                    width: 26,
+                    height: 22,
+                    width: 22,
                     decoration: BoxDecoration(
                       color: getTheRightColor() == kGrayColor
                           ? Colors.transparent
@@ -64,7 +67,7 @@ class Option extends StatelessWidget {
                     ),
                     child: getTheRightColor() == kGrayColor
                         ? null
-                        : Icon(getTheRightIcon(), size: 16),
+                        : Icon(getTheRightIcon(), size: 14),
                   )
                 ],
               ),

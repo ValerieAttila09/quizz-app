@@ -6,6 +6,10 @@ import 'package:quiz_app/screens/welcome/welcome_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ScoreScreen extends StatefulWidget {
+  final String? username;
+  
+  const ScoreScreen({Key? key, this.username}) : super(key: key);
+  
   @override
   _ScoreScreenState createState() => _ScoreScreenState();
 }
@@ -22,6 +26,16 @@ class _ScoreScreenState extends State<ScoreScreen> {
           Column(
             children: [
               Spacer(flex: 3),
+              if (widget.username != null) ...[
+                Text(
+                  widget.username!,
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8),
+              ],
               Text(
                 "Score",
                 style: Theme.of(

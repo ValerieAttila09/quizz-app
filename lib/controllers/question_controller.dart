@@ -14,8 +14,9 @@ class QuestionController extends GetxController
   PageController get pageController => this._pageController;
 
   final String difficulty;
+  final String? username;
   
-  QuestionController({this.difficulty = 'Easy'});
+  QuestionController({this.difficulty = 'Easy', this.username});
 
   List<Question> _questions = [];
   List<Question> get questions => this._questions;
@@ -62,9 +63,10 @@ class QuestionController extends GetxController
 
   @override
   void onClose() {
-    super.onClose();
+    _animationController.stop();
     _animationController.dispose();
     _pageController.dispose();
+    super.onClose();
   }
 
   void checkAns(Question question, int selectedIndex) {
@@ -89,10 +91,13 @@ class QuestionController extends GetxController
           duration: Duration(milliseconds: 250), curve: Curves.ease);
 
       _animationController.reset();
-
-      _animationController.forward().whenComplete(nextQuestion);
+      _animationController.forward().whenComplete(() {
+        if (!isClosed) {
+          nextQuestion();
+        }
+      });
     } else {
-      Get.to(ScoreScreen());
+      Get.off(() => ScoreScreen(username: username));
     }
   }
 

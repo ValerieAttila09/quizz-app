@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:quiz_app/constants.dart';
 import 'package:quiz_app/screens/login/login_screen.dart';
 import 'package:quiz_app/screens/quiz/quiz_screen.dart';
+import 'package:quiz_app/services/auth_service.dart';
 
 class WelcomeScreen extends StatefulWidget {
   @override
@@ -75,7 +77,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                   Spacer(), // 1/6
                   InkWell(
-                    onTap: () => Get.to(() => QuizScreen(difficulty: selectedDifficulty)),
+                    onTap: () {
+                      final authService = Provider.of<AuthService>(context, listen: false);
+                      Get.to(() => QuizScreen(
+                        difficulty: selectedDifficulty,
+                        username: authService.currentUser?.username,
+                      ));
+                    },
                     child: Container(
                       width: double.infinity,
                       alignment: Alignment.center,

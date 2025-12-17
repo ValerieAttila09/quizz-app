@@ -14,16 +14,16 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     QuestionController _questionController = Get.find<QuestionController>();
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      // extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        actions: [
-          TextButton(
-            onPressed: _questionController.nextQuestion,
-            child: Text("Skip"),
-          ),
-        ],
+        // actions: [
+        //   TextButton(
+        //     onPressed: _questionController.nextQuestion,
+        //     child: Text("Skip"),
+        //   ),
+        // ],
       ),
       body: Stack(
         children: [
@@ -45,14 +45,14 @@ class Body extends StatelessWidget {
                         text: "Question ${_questionController.questionNumber.value}",
                         style: Theme.of(context)
                             .textTheme
-                            .headlineMedium
+                            .headlineSmall
                             ?.copyWith(color: kSecondaryColor),
                         children: [
                           TextSpan(
                             text: "/${_questionController.questions.length}",
                             style: Theme.of(context)
                                 .textTheme
-                                .headlineSmall
+                                .titleLarge
                                 ?.copyWith(color: kSecondaryColor),
                           ),
                         ],

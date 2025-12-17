@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_app/screens/login/login_screen.dart';
 import 'package:quiz_app/services/auth_service.dart';
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider<AuthService>(
       create: (_) => AuthService(),
-      child: MaterialApp(
+      child: GetMaterialApp(
         title: 'Quiz App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(),
